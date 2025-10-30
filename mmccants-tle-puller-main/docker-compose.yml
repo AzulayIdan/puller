@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  tle-puller:
+    image: ghcr.io/green2moon/mmccants-tle-puller:1.0.6
+    environment:
+      - LOGIN_URL=https://www.n2yo.com/login/
+      - TLE_OBJECTS_EXTRACTION_URL=https://www.n2yo.com/satellite/
+      - NY2O_OUTPUT_FILE_NAME=n2yo_data
+      - NEW_SPACE_OUTPUT_FOLDER_PATH=/data
+      - EMAIL=tlepuller@gmail.com
+      - PASSWORD=ShteiShurot1234
+      - MONGO_DB_URI=mongodb+srv://maorkrasner02:mk02admin@cluster123.dlguivn.mongodb.net/dbname?retryWrites=true&w=majority&authSource=admin
+      - SLEEPING_TIME_IN_SECONDS=3600
+    volumes:
+      - /Users/maorkrasner/Desktop:/data
+    restart: always
